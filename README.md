@@ -1,2 +1,6 @@
 # CloudFileTransfer
-Transfer files between different supported cloud providers or local file storage.
+Bulk transfer of files between supported cloud providers. Supports same provider different acocunt transfers, same account transfers, and transfers to local file storage.
+
+## Supported Providers
+AWS S3
+Google Cloud Storage

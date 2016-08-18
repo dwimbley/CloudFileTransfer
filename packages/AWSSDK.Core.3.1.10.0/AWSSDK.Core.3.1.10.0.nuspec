@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AWSSDK.Core</id>
+    <version>3.1.10.0</version>
+    <title>AWSSDK - Core Runtime</title>
+    <authors>Amazon Web Services</authors>
+    <owners>Amazon Web Services</owners>
+    <licenseUrl>http://aws.amazon.com/apache2.0/</licenseUrl>
+    <projectUrl>https://github.com/aws/aws-sdk-net/</projectUrl>
+    <iconUrl>http://media.amazonwebservices.com/aws_singlebox_01.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Amazon Web Services SDK for .NET - Core Runtime</description>
+    <language>en-US</language>
+    <tags>AWS Amazon cloud aws-sdk-v3</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETPortable0.0-net45+win8+wp8+wpa81">
+        <dependency id="Microsoft.Net.Http" version="2.2.29" />
+        <dependency id="PCLStorage" version="1.0.2" />
+        <dependency id="PCLCrypto" version="1.0.2.15130" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

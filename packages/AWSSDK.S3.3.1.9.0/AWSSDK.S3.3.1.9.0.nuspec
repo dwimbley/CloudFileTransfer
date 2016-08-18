@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AWSSDK.S3</id>
+    <version>3.1.9.0</version>
+    <title>AWSSDK - Amazon Simple Storage Service</title>
+    <authors>Amazon Web Services</authors>
+    <owners>Amazon Web Services</owners>
+    <licenseUrl>http://aws.amazon.com/apache2.0/</licenseUrl>
+    <projectUrl>https://github.com/aws/aws-sdk-net/</projectUrl>
+    <iconUrl>http://media.amazonwebservices.com/aws_singlebox_01.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Amazon Simple Storage Service (Amazon S3), provides developers and IT teams with secure, durable, highly-scalable object storage.</description>
+    <summary />
+    <language>en-US</language>
+    <tags>AWS Amazon cloud S3 aws-sdk-v3</tags>
+    <dependencies>
+      <group>
+        <dependency id="AWSSDK.Core" version="[3.1.10, 3.2.0)" />
+      </group>
+      <group targetFramework=".NETPortable0.0-net45+win8+wp8+wpa81">
+        <dependency id="AWSSDK.Core" version="[3.1.10, 3.2.0)" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
