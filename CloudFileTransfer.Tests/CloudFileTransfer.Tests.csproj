@@ -35,6 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AWSSDK.Core.3.1.10.0\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AWSSDK.S3.3.1.9.0\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -50,8 +61,34 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Amazon\ConvertTests.cs" />
+    <Compile Include="CloudFileTransferTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloudFileTransfer.Amazon\CloudFileTransfer.Amazon.csproj">
+      <Project>{bf5760c0-4585-4a8f-8e35-d8e7ee03ea01}</Project>
+      <Name>CloudFileTransfer.Amazon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudFileTransfer.Core\CloudFileTransfer.Core.csproj">
+      <Project>{574d406b-5424-44ec-a08d-0240d8d77a51}</Project>
+      <Name>CloudFileTransfer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudFileTransfer.Google\CloudFileTransfer.Google.csproj">
+      <Project>{34697c2e-e8a2-4cd6-a262-83a16d803a8b}</Project>
+      <Name>CloudFileTransfer.Google</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudFileTransfer\CloudFileTransfer.csproj">
+      <Project>{3d39be07-10d5-4e5c-b42c-02043a8efd70}</Project>
+      <Name>CloudFileTransfer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Google\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

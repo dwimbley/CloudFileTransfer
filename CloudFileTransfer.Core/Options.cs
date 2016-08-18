@@ -45,7 +45,6 @@ namespace CloudFileTransfer.Core
 
         #endregion
 
-
         [Option("source-provider", HelpText = "Source cloud storage provider name", Required = true)]
         public string SourceProvider { get; set; }
 
@@ -62,6 +61,11 @@ namespace CloudFileTransfer.Core
         public string GetUsage()
         {
             return HelpText.AutoBuild(this, (current) => HelpText.DefaultParsingErrorsHandler(this, current));
+        }
+
+        public void Validate()
+        {
+            
         }
     }
 }

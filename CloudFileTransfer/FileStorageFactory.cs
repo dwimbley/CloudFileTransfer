@@ -24,6 +24,11 @@ namespace CloudFileTransfer
 
             switch (providername)
             {
+                case "destination-google":
+                case "destination-googlecloudstorage":
+                case "dest-google":
+                case "dest-googlecloudstorage":
+                    return new GoogleCloudStorage();
                 case "source-google":
                 case "source-googlecloudstorage":
                     return new GoogleCloudStorage();
