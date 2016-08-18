@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Google.Apis</id>
+    <version>1.15.0</version>
+    <title>Google APIs Client Library</title>
+    <authors>Google Inc.</authors>
+    <owners>Google Inc.</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://developers.google.com/api-client-library/dotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Google APIs Client Library is a runtime client for working with Google services.
+          The library supports service requests, media upload and download, etc.
+
+          Supported Platforms:
+
+          - .NET Framework 4.5
+		  
+		  - NetStandard1.3
+
+          - Windows Store apps
+
+          - Windows Phone 8 and 8.1
+
+          - Portable Class Libraries</description>
+    <tags>Google</tags>
+    <dependencies>
+      <group>
+        <dependency id="Google.Apis.Core" version="1.15.0" />
+        <dependency id="Zlib.Portable.Signed" version="1.11.0" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="log4net" version="2.0.3" />
+        <dependency id="Google.Apis.Core" version="1.15.0" />
+        <dependency id="Zlib.Portable.Signed" version="1.11.0" />
+      </group>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="Google.Apis.Core" version="1.15.0" />
+        <dependency id="System.Collections" version="4.0.11" />
+        <dependency id="System.Diagnostics.Debug" version="4.0.11" />
+        <dependency id="System.IO" version="4.1.0" />
+        <dependency id="System.IO.Compression" version="4.1.0" />
+        <dependency id="System.Linq" version="4.1.0" />
+        <dependency id="System.Net.Http" version="4.1.0" />
+        <dependency id="System.Net.Primitives" version="4.0.11" />
+        <dependency id="System.Reflection" version="4.1.0" />
+        <dependency id="System.Runtime" version="4.1.0" />
+        <dependency id="System.Runtime.Extensions" version="4.1.0" />
+        <dependency id="System.Text.Encoding" version="4.0.11" />
+        <dependency id="System.Threading" version="4.0.11" />
+        <dependency id="System.Threading.Tasks" version="4.0.11" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.1.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

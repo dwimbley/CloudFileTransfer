@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Google.Apis.Storage.v1</id>
+    <version>1.15.0.579</version>
+    <title>Google.Apis.Storage.v1 Client Library</title>
+    <authors>Google Inc.</authors>
+    <owners>Google Inc.</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://www.github.com/google/google-api-dotnet-client</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Google APIs Client Library for working with Storage v1.
+          Supported Platforms:
+
+          - .NET Framework 4 and 4.5
+
+          - NetStandard1.3
+
+          - Windows Store apps
+
+          - Windows Phone 8 and 8.1
+
+          - Portable Class Libraries
+
+          More documentation on the API is available at:
+          https://developers.google.com/api-client-library/dotnet/apis/storage/v1
+
+          The package source code is available at:
+          https://github.com/google/google-api-dotnet-client/tree/master/Src/Generated</description>
+    <summary>Google Storage v1 API client library</summary>
+    <tags>Google</tags>
+    <dependencies>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="Google.Apis" version="1.15.0" />
+        <dependency id="Google.Apis.Auth" version="1.15.0" />
+      </group>
+      <group targetFramework=".NETPortable0.0-net45+win8+wp8+wpa81">
+        <dependency id="Google.Apis" version="1.15.0" />
+        <dependency id="Google.Apis.Auth" version="1.15.0" />
+      </group>
+      <group targetFramework=".NETPortable0.0-net40+sl5+win8+wp8+wpa81">
+        <dependency id="Google.Apis" version="[1.10.0]" />
+        <dependency id="Google.Apis.Auth" version="[1.10.0]" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
