@@ -28,10 +28,10 @@ namespace CloudFileTransfer
                 case "destination-googlecloudstorage":
                 case "dest-google":
                 case "dest-googlecloudstorage":
-                    return new GoogleCloudStorage();
+                    return new GoogleCloudStorage("", "");
                 case "source-google":
                 case "source-googlecloudstorage":
-                    return new GoogleCloudStorage();
+                    return new GoogleCloudStorage("", "");
                 case "source-amazon":
                 case "source-aws":
                 case "source-s3":

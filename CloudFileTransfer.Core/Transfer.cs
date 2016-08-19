@@ -8,12 +8,13 @@ namespace CloudFileTransfer.Core
 {
     public class Transfer
     {
-        private IFileStore _sourrce = null;
-        private IFileStore _destination = null;
+        private readonly IFileStore _source = null;
+        private readonly IFileStore _destination = null;
 
         public Transfer(IFileStore source, IFileStore destination)
         {
-            
+            this._source = source;
+            this._destination = destination;
         }
     }
 }

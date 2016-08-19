@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using CloudFileTransfer.Core;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using Google.Apis.Storage.v1;
+using GoogleObject = Google.Apis.Storage.v1.Data.Object;
 
 namespace CloudFileTransfer.Google
 {
@@ -48,17 +45,46 @@ namespace CloudFileTransfer.Google
 
         public byte[] Download(string bucketname, string folderpath, string filename)
         {
-            throw new NotImplementedException();
+            StorageService storage = CreateStorageClient();
+
+            using (var stream = new MemoryStream())
+            {
+                storage.Objects.Get(bucketname, filename).Download(stream);
+                var content = stream.GetBuffer();
+
+                return content;
+            }
         }
 
         public void Upload(string bucketname, string uploadfolder, string uploadfilename, string localfile)
         {
-            throw new NotImplementedException();
+            var file = File.ReadAllBytes(localfile);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                ms.Write(file, 0, file.Length);
+                this.UploadFile(bucketname, uploadfolder, uploadfilename, ms);
+            }
         }
 
         public void Upload(string bucketname, string uploadfolder, string uploadfilename, byte[] file)
         {
-            throw new NotImplementedException();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                ms.Write(file, 0, file.Length);
+                this.UploadFile(bucketname, uploadfolder, uploadfilename, ms);
+            }
+        }
+
+        private void UploadFile(string bucketname, string uploadfolder, string uploadfilename, MemoryStream file)
+        {
+            StorageService storage = CreateStorageClient();
+
+            storage.Objects.Insert(
+                bucket: bucketname,
+                stream: file,
+                contentType: Path.GetExtension(uploadfilename).ToContentType(),
+                body: new GoogleObject { Name = uploadfilename }
+            ).Upload();
         }
     }
 }
