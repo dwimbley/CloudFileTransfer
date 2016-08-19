@@ -37,8 +37,6 @@ namespace CloudFileTransfer.Core
 
         #region Google Args
 
-        
-
         [Option("google-clientid", HelpText = "Google API Client Id")]
         public string GoogleClientIdKey { get; set; }
 
@@ -65,11 +63,12 @@ namespace CloudFileTransfer.Core
         [Option("dest-provider", HelpText = "Destination cloud storage provider name", Required = true)]
         public string DestinationProvider { get; set; }
         
-        [Option('f', "file", HelpText = "CSV s3 file names, full source and destination directory paths", Required = true)]
+        [Option('f', "file", HelpText = "CSV source file names, full source and destination directory paths", Required = true)]
         public string Filename { get; set; }
 
         [Option('v', "verbose", DefaultValue = false, HelpText = "Execute in verbose mode")]
         public bool Verbose { get; set; }
+
 
         [HelpOption]
         public string GetUsage()
@@ -79,7 +78,44 @@ namespace CloudFileTransfer.Core
 
         public void Validate()
         {
-            
+            var sprovider = ConvertSp.ToStorageProvider(this.SourceProvider);
+            var dprovider = ConvertSp.ToStorageProvider(this.DestinationProvider);
+
+            Action<string, string> throwException = (value, errmsg) =>
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new CommandLineArgumentException(errmsg);
+                }
+            };
+
+            switch (sprovider)
+            {
+                case StorageProvider.Amazon:
+                    throwException(SourceBucketName, @"Source bucket must be provided");
+                    throwException(AwsSourceEndpoint, @"Source endpoint for S3 storage must be provided");
+                    throwException(AwsSecretKey, @"Source AWS Secret key must be provided");
+                    throwException(AwsAccessKey, @"Source AWS Access key must be provided");
+                    break;
+                case StorageProvider.Google:
+                    throwException(GoogleClientIdKey, @"Source Google client id token must be provided");
+                    throwException(GoogleSecretKey, @"Source Google secret key must be provided");
+                    break;
+            }
+
+            switch (dprovider)
+            {
+                case StorageProvider.Amazon:
+                    throwException(DestinationBucketName, @"Destination bucket must be provided");
+                    throwException(AwsDestinationEndpoint, @"Destination endpoint for S3 storage must be provided");
+                    throwException(AwsDestinationSecretKey, @"Destination AWS Secret key must be provided");
+                    throwException(AwsDestinationAccessKey, @"Destination AWS Access key must be provided");
+                    break;
+                case StorageProvider.Google:
+                    throwException(GoogleDestinationClientId, @"Destination Google client id token must be provided");
+                    throwException(GoogleDestinationSecretKey, @"Destination Google secret key must be provided");
+                    break;
+            }
         }
     }
 }
