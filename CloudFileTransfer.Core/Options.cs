@@ -15,12 +15,6 @@ namespace CloudFileTransfer.Core
 
         #region Amazon Args
 
-        [Option("source-aws-bucket", HelpText = "AWS S3 source bucket name")]
-        public string AwsBucketName { get; set; }
-
-        [Option("dest-aws-bucket", HelpText = "AWS S3 destination bucket name")]
-        public string AwsDestinationBucketName { get; set; }
-
         [Option("aws-access-key", HelpText = "Amazon Web Services Access Key")]
         public string AwsAccessKey { get; set; }
 
@@ -43,7 +37,27 @@ namespace CloudFileTransfer.Core
 
         #region Google Args
 
+        
+
+        [Option("google-clientid", HelpText = "Google API Client Id")]
+        public string GoogleClientIdKey { get; set; }
+
+        [Option("google-secret-key", HelpText = "Google API Secret Key")]
+        public string GoogleSecretKey { get; set; }
+
+        [Option("google-dest-clientid", HelpText = "Destination Google API Client Id")]
+        public string GoogleDestinationClientId { get; set; }
+
+        [Option("google-dest-secret-key", HelpText = "Destination Google API Secret Key")]
+        public string GoogleDestinationSecretKey { get; set; }
+
         #endregion
+
+        [Option("source-bucket", HelpText = "Google Cloud Storage source bucket name")]
+        public string SourceBucketName { get; set; }
+
+        [Option("dest-google-bucket", HelpText = "Google Cloud Storage destination bucket name")]
+        public string DestinationBucketName { get; set; }
 
         [Option("source-provider", HelpText = "Source cloud storage provider name", Required = true)]
         public string SourceProvider { get; set; }

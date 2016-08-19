@@ -42,8 +42,7 @@ namespace CloudFileTransfer
 
                         var thread = new Thread(() =>
                         {
-                            
-
+                            transfer.Copy(options.SourceBucketName, options.DestinationBucketName, currentfolder, destinationfolder, filename);
                         });
 
                         thread.Start();

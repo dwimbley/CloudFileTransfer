@@ -22,16 +22,16 @@ namespace CloudFileTransfer
         {
             var sanitized = providername.ToLower().Trim();
 
-            switch (providername)
+            switch (sanitized)
             {
                 case "destination-google":
                 case "destination-googlecloudstorage":
                 case "dest-google":
                 case "dest-googlecloudstorage":
-                    return new GoogleCloudStorage("", "");
+                    return new GoogleCloudStorage(this._options.GoogleDestinationClientId, this._options.GoogleDestinationSecretKey);
                 case "source-google":
                 case "source-googlecloudstorage":
-                    return new GoogleCloudStorage("", "");
+                    return new GoogleCloudStorage(this._options.GoogleClientIdKey, this._options.GoogleSecretKey);
                 case "source-amazon":
                 case "source-aws":
                 case "source-s3":

@@ -21,7 +21,7 @@ namespace CloudFileTransfer.Google
 
         private StorageService CreateStorageClient()
         {
-            UserCredential auth = GoogleWebAuthorizationBroker.AuthorizeAsync(new ClientSecrets {ClientId = this._apikey, ClientSecret = this._secretkey}, new[]
+            UserCredential auth = GoogleWebAuthorizationBroker.AuthorizeAsync(new ClientSecrets { ClientId = this._apikey, ClientSecret = this._secretkey}, new[]
             {
                 StorageService.Scope.DevstorageFullControl
 
