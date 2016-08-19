@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CloudFileTransfer.Core
+﻿namespace CloudFileTransfer.Google
 {
     public static class FileExtension
     {
+        /// <summary>
+        /// Convert file extension (string) to applicable content type
+        /// </summary>
+        /// <param name="value">File extension</param>
+        /// <returns>content type</returns>
         public static string ToContentType(this string value)
         {
             switch (value)

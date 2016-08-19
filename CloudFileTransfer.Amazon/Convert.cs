@@ -9,6 +9,11 @@ namespace CloudFileTransfer.Amazon
 {
     public class Convert
     {
+        /// <summary>
+        /// Convert custom AwsEndpoint enum to Amazon SDK RegionEndpoint
+        /// </summary>
+        /// <param name="value">AwsEndpoint</param>
+        /// <returns>AWS SDK RegionEndpoint</returns>
         public static RegionEndpoint ToRegionEndpoint(AwsEndpoint value)
         {
             switch (value)
@@ -44,6 +49,11 @@ namespace CloudFileTransfer.Amazon
             }
         }
 
+        /// <summary>
+        /// Convert string to Amazon SDK RegionEndpoint
+        /// </summary>
+        /// <param name="value">string region endpoint</param>
+        /// <returns>AWS SDK RegionEndpoint</returns>
         public static RegionEndpoint ToRegionEndpoint(string value)
         {
             var sanitize = value.ToLower().Trim();

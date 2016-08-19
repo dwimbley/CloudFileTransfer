@@ -32,7 +32,7 @@ namespace CloudFileTransfer
 
                         if (fileargs.Length < 2)
                         {
-                            throw new ArgumentException(string.Format(@"Line {0} is not formatted correctly. {1}", counter, line));
+                            throw new CommandLineArgumentException(string.Format(@"Line {0} is not formatted correctly. {1}", counter, line));
                         }
 
                         var currentfolder = fileargs[0];
@@ -42,7 +42,8 @@ namespace CloudFileTransfer
 
                         var thread = new Thread(() =>
                         {
-                            transfer.Copy(options.SourceBucketName, options.DestinationBucketName, currentfolder, destinationfolder, filename);
+                            transfer.Copy(options.SourceBucketName, options.DestinationBucketName, currentfolder,
+                                destinationfolder, filename);
                         });
 
                         thread.Start();
@@ -52,6 +53,10 @@ namespace CloudFileTransfer
                     catch (ArgumentException aex)
                     {
                         Console.WriteLine(aex.Message);
+                    }
+                    catch (CommandLineArgumentException claex)
+                    {
+                        Console.WriteLine(claex.Message);
                     }
                 }
             }

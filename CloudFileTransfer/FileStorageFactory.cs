@@ -9,15 +9,27 @@ using CloudFileTransfer.Google;
 
 namespace CloudFileTransfer
 {
+    /// <summary>
+    /// Handles the building of the correct file storage provider based on provider name
+    /// </summary>
     public class FileStorageFactory
     {
         private readonly Options _options = null;
 
+        /// <summary>
+        /// Instantiates a new class of the <see cref="FileStorageFactory"/> class
+        /// </summary>
+        /// <param name="options">Command line arguments</param>
         public FileStorageFactory(Options options)
         {
             this._options = options;
         }
 
+        /// <summary>
+        /// Get the applicable file storage provider by name
+        /// </summary>
+        /// <param name="providername">Name of file storage provider</param>
+        /// <returns>IFileStore - storage provider</returns>
         public IFileStore Get(string providername)
         {
             var sanitized = providername.ToLower().Trim();
